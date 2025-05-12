@@ -16,7 +16,7 @@ void Try(int index, vector<int>& partition) {
     }
 
     // Xếp quả bóng thứ i vào các hộp hiện có
-    for (int i = 0; i < partition.size(); ++i) {
+    for (int i = 0; i < partition.size(); i++) {
         int old_subset = partition[i];
         partition[i] |= (1 << (index - 1));
         Try(index + 1, partition);
@@ -44,13 +44,13 @@ int main() {
     cout << "Cac phan hoach: " << endl;
     
     for (auto& partition : partitions) {
-        for (int item : partition) {
+        for (auto& item : partition) {
             cout << "{";
             bool first = true;
-            for (int j = 1; j <= n; ++j) {
-                if (item & (1 << (j - 1))) {
+            for (int i = 1; i <= n; i++) {
+                if (item & (1 << (i - 1))) {
                     if (!first) cout << ", ";
-                    cout << j;
+                    cout << i;
                     first = false;
                 }
             }
