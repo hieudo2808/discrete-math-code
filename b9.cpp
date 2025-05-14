@@ -11,7 +11,7 @@ void Try(int current_sum, int last) {
         cout << "\n";
         return;
     }
-    
+
     for (int k = min(last, n - current_sum); k >= 1; k--) {
         part.push_back(k);
         Try(current_sum + k, k);
